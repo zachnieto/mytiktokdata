@@ -1,0 +1,3 @@
+az webapp create-remote-connection --subscription e37bf141-495d-4f0a-b328-d78407a83ddc --resource-group maven-plugin -n mytiktokdata &
+
+ssh root@127.0.0.1 -p <port>

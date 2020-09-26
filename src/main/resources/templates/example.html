@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+ <head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>TikTok Data Analyzer</title> 
+  <!-- Bootstrap --> 
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet"> 
+ </head> 
+ <body> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto"> 
+     <li class="nav-item active"> <a class="nav-link" href="https://www.mytiktokdata.com/">Home </a> </li> 
+    </ul> 
+   </div> 
+  </nav> 
+  <section> 
+   <div class="container"> 
+    <div class="row"> 
+     <div class="col-12 text-center"> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <section> 
+   <div style="width: 100%; display: inline-block; padding-top: 2%">
+    <div style="width: 50%; float: left; border-right: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Profile Statistics</h1> 
+     <div>
+      <h3>TikTok launches: 5200</h3>
+     </div>
+     <div>
+      <h3>Videos watched: 80908</h3>
+     </div>
+     <div>
+      <h3>Most videos watched in a day: 1240 on 5/23/2020</h3>
+     </div>
+     <div>
+      <h3>Videos liked: 738</h3>
+     </div>
+     <div>
+      <h3>Most videos liked in a day: 26 on 4/17/2020</h3>
+     </div>
+     <div>
+      <h3>Hashtags used: 15</h3>
+     </div> 
+     <div>
+      <h3>Videos made: 200</h3>
+     </div> 
+     <div>
+      <h3>Comments made: 300</h3>
+     </div> 
+     <div>
+      <h3>Followers: 50,000</h3>
+     </div> 
+     <div>
+      <h3>Following: 423</h3>
+     </div> 
+     <div>
+      <h3>Direct messages: 63</h3>
+     </div> 
+     <div>
+      <h3>Blocked users: 25</h3>
+     </div> 
+    </div> 
+    <div style="margin-left: 50%; border-left: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Profile Data</h1>
+     <div>
+      <img src="https://mytiktokdatastorage.blob.core.windows.net/data/favicon.png" style="width: 40%; height: auto">
+     </div>
+     <div>
+      <h2>Name: Jane Doe</h2>
+     </div> 
+     <div>
+      <h2>Username: MyTikTokData</h2>
+     </div> 
+     <div>
+      <h2>Phone Number: +1234567890</h2>
+     </div> 
+     <div>
+      <h2>Email: MyTikTokData@gmail.com</h2>
+     </div> 
+     <div>
+      <h2>Birthday: 01/01/2000</h2>
+     </div> 
+    </div> 
+   </div> 
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%">
+    <div style="padding-left: 5%; padding-right: 5%">
+     <br>
+     <h1 style="text-align: center; font-size: 48pt"><b>Your Login Locations</b></h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_IPMap.png" id="ip_map" style="height: 100%; display: block; margin-left: auto; margin-right: auto" alt="">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%">
+    <div style="padding-left: 5%; padding-right: 5%; overflow: scroll">
+     <br>
+     <h1 style="text-align: center; font-size: 48pt"><b>Your Watch History</b></h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_WatchedHistory.png" id="history_img" style="height: 50%" alt="">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%; display: inline-block">
+    <div style="width: 50%; height: auto; float: left; border-right: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Watched Per Day</h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_WatchedWeekdayFrequency.png" id="weekday_freq" alt="" style="max-width: 100%; height: auto">
+     <h1 style="text-align:center; padding-top: 10%">Average Videos Watched Per Month</h1>
+     <img  src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_WatchedMonthFrequency.png" id="month_freq" alt="" style="max-width: 100%; height: auto">
+    </div>
+    <div style="margin-left: 50%; height: auto; border-left: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Watched Per Hour</h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_WatchedHourFrequency.png" id="hour_freq" alt="" style="max-width: 100%; height: auto">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%">
+    <div style="padding-left: 5%; padding-right: 5%; overflow: scroll">
+     <br>
+     <h1 style="text-align: center; font-size: 48pt"><b>Your Like History</b></h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_LikedHistory.png" id="history_img" style="height: 50%" alt="">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%; display: inline-block">
+    <div style="width: 50%; height: auto; float: left; border-right: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Liked Per Day</h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_LikedWeekdayFrequency.png" id="weekday_freq" alt="" style="max-width: 100%; height: auto">
+     <h1 style="text-align:center; padding-top: 10%">Average Videos Liked Per Month</h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_LikedMonthFrequency.png" id="month_freq" alt="" style="max-width: 100%; height: auto">
+    </div>
+    <div style="margin-left: 50%; height: auto; border-left: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Liked Per Hour</h1>
+     <img src="https://mytiktokdatastorage.blob.core.windows.net/exampledata/Example_Data_LikedHourFrequency.png" id="hour_freq" alt="" style="max-width: 100%; height: auto">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <footer class="text-center">
+   <div class="container">
+    <div class="row">
+     <div class="col-12">
+      <p>Copyright © MyTikTokData. All rights reserved.</p>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap-4.4.1.js"></script>
+ </body>
+</html>

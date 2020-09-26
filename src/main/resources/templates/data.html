@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+ <head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>TikTok Data Analyzer</title> 
+  <!-- Bootstrap --> 
+  <link href="css/bootstrap-4.4.1.css" rel="stylesheet"> 
+ </head> 
+ <body> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto"> 
+     <li class="nav-item active"> <a class="nav-link" href="https://www.mytiktokdata.com/">Home </a> </li> 
+    </ul> 
+   </div> 
+  </nav> 
+  <section> 
+   <div class="container"> 
+    <div class="row"> 
+     <div class="col-12 text-center"> 
+     </div> 
+    </div> 
+   </div> 
+  </section> 
+  <section> 
+   <div style="width: 100%; display: inline-block; padding-top: 2%">
+    <div style="width: 50%; float: left; border-right: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Profile Statistics</h1> 
+     <div th:if="${appopens}"> 
+      <h3 th:text="${appopens}"></h3>
+     </div>
+     <div th:if="${videoswatched}">
+      <h3 th:text="${videoswatched}"></h3>
+     </div>
+     <div th:if="${mostWatchedDay}">
+      <h3 th:text="${mostWatchedDay}"></h3>
+     </div>
+     <div th:if="${likedvideos}"> 
+      <h3 th:text="${likedvideos}"></h3>
+     </div>
+     <div th:if="${mostLikedDay}">
+      <h3 th:text="${mostLikedDay}"></h3>
+     </div>
+     <div th:if="${hashtags}"> 
+      <h3 th:text="${hashtags}"></h3>
+     </div> 
+     <div th:if="${videosmade}"> 
+      <h3 th:text="${videosmade}"></h3>
+     </div> 
+     <div th:if="${commentsmade}"> 
+      <h3 th:text="${commentsmade}"></h3>
+     </div> 
+     <div th:if="${followers}"> 
+      <h3 th:text="${followers}"></h3>
+     </div> 
+     <div th:if="${following}"> 
+      <h3 th:text="${following}"></h3>
+     </div> 
+     <div th:if="${directmessages}"> 
+      <h3 th:text="${directmessages}"></h3>
+     </div> 
+     <div th:if="${blockedusers}"> 
+      <h3 th:text="${blockedusers}"></h3>
+     </div> 
+    </div> 
+    <div style="margin-left: 50%; border-left: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Profile Data</h1>
+     <div th:if="${profilePic}">
+      <img th:attr="src=${profilePic}" style="width: 40%; height: auto">
+     </div>
+     <div th:if="${name}"> 
+      <h2 th:text="${name}"></h2> 
+     </div> 
+     <div th:if="${username}"> 
+      <h2 th:text="${username}"></h2> 
+     </div> 
+     <div th:if="${phonenumber}"> 
+      <h2 th:text="${phonenumber}"></h2> 
+     </div> 
+     <div th:if="${email}"> 
+      <h2 th:text="${email}"></h2> 
+     </div> 
+     <div th:if="${birthday}"> 
+      <h2 th:text="${birthday}"></h2> 
+     </div> 
+    </div> 
+   </div> 
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%">
+    <div style="padding-left: 5%; padding-right: 5%">
+     <br>
+     <h1 style="text-align: center; font-size: 48pt"><b>Your Login Locations</b></h1>
+     <img th:attr="src=${ipMap}" src="https://mytiktokdatastorage.blob.core.windows.net/data/zneatz_IPMap.png" id="ip_map" style="height: 100%; display: block; margin-left: auto; margin-right: auto" alt="">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <section> 
+   <div style="width: 100%;"> 
+    <div style="padding-left: 5%; padding-right: 5%; overflow: scroll">
+     <br> 
+     <h1 style="text-align: center; font-size: 48pt"><b>Your Watch History</b></h1>
+     <img th:attr="src=${viewHistoryLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/carrie_ls_History.png" id="history_img" style="height: 50%" alt="">
+    </div> 
+   </div>
+  </section>
+  <hr>
+  <section> 
+   <div style="width: 100%; display: inline-block">
+    <div style="width: 50%; height: auto; float: left; border-right: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Watched Per Day</h1>
+     <img th:attr="src=${viewWeekdayLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/carrie_ls_WeekdayFrequency.png" id="weekday_freq" alt="" style="max-width: 100%; height: auto">
+     <h1 style="text-align:center; padding-top: 10%">Average Videos Watched Per Month</h1>
+     <img th:attr="src=${viewMonthLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/carrie_ls_MonthFrequency.png" id="month_freq" alt="" style="max-width: 100%; height: auto">
+    </div> 
+    <div style="margin-left: 50%; height: auto; border-left: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Watched Per Hour</h1>
+     <img th:attr="src=${viewHourLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/zneatz_HourFrequency.png" id="hour_freq" alt="" style="max-width: 100%; height: auto">
+    </div> 
+   </div> 
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%">
+    <div style="padding-left: 5%; padding-right: 5%; overflow: scroll">
+     <br>
+     <h1 style="text-align: center; font-size: 48pt"><b>Your Like History</b></h1>
+     <img th:attr="src=${likeHistoryLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/carrie_ls_History.png" id="history_img" style="height: 50%" alt="">
+    </div>
+   </div>
+  </section>
+  <hr>
+  <section>
+   <div style="width: 100%; display: inline-block">
+    <div style="width: 50%; height: auto; float: left; border-right: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Liked Per Day</h1>
+     <img th:attr="src=${likeWeekdayLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/carrie_ls_WeekdayFrequency.png" id="weekday_freq" alt="" style="max-width: 100%; height: auto">
+     <h1 style="text-align:center; padding-top: 10%">Average Videos Liked Per Month</h1>
+     <img th:attr="src=${likeMonthLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/carrie_ls_MonthFrequency.png" id="month_freq" alt="" style="max-width: 100%; height: auto">
+    </div>
+    <div style="margin-left: 50%; height: auto; border-left: 1px solid #ececec; padding-left: 5%; padding-right: 5%">
+     <h1 style="text-align:center">Average Videos Liked Per Hour</h1>
+     <img th:attr="src=${likeHourLink}" src="https://mytiktokdatastorage.blob.core.windows.net/data/zneatz_HourFrequency.png" id="hour_freq" alt="" style="max-width: 100%; height: auto">
+    </div>
+   </div>
+  </section>
+  <hr> 
+  <footer class="text-center"> 
+   <div class="container"> 
+    <div class="row"> 
+     <div class="col-12"> 
+      <p>Copyright © MyTikTokData. All rights reserved.</p> 
+     </div> 
+    </div> 
+   </div> 
+  </footer> 
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+  <script src="js/jquery-3.4.1.min.js"></script> 
+  <!-- Include all compiled plugins (below), or include individual files as needed --> 
+  <script src="js/popper.min.js"></script> 
+  <script src="js/bootstrap-4.4.1.js"></script>  
+ </body>
+</html>
