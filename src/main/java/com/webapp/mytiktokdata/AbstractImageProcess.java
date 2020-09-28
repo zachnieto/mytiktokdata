@@ -5,8 +5,10 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 
+/**
+ * Class for Connecting to blob and uploading images.
+ */
 public abstract class AbstractImageProcess {
-
 
 
   /**

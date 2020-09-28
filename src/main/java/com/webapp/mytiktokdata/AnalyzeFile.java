@@ -24,6 +24,9 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Main class to analyze the given file.
+ */
 public class AnalyzeFile {
 
     private final MultipartFile file;
@@ -32,6 +35,16 @@ public class AnalyzeFile {
     private final StorageService storageService;
     private String username;
 
+    /**
+     * Contructs an AnalyzeFile and parses the data.
+     *
+     * @param file               input data file
+     * @param redirectAttributes attributes on data.html
+     * @param timezone           timezone of user
+     * @param storageService     file storage
+     * @throws IOException     if the file is invalid
+     * @throws GeoIp2Exception if the ip can't be parsed
+     */
     public AnalyzeFile(MultipartFile file, RedirectAttributes redirectAttributes,
                        TimeZone timezone, StorageService storageService) throws IOException, GeoIp2Exception {
         this.file = file;
@@ -42,6 +55,11 @@ public class AnalyzeFile {
         this.parseFile();
     }
 
+    /**
+     * Checks if the file is valid.
+     *
+     * @return if the file is valid
+     */
     private boolean isValidFile() {
         if (file.getSize() == 0) {
             redirectAttributes.addFlashAttribute("message",
@@ -60,6 +78,12 @@ public class AnalyzeFile {
         return true;
     }
 
+    /**
+     * Unzips the file.
+     *
+     * @return the list of files unzipped
+     * @throws IOException if the file cannot be found
+     */
     private File[] extractFiles() throws IOException {
         File zip = File.createTempFile(UUID.randomUUID().toString(), "temp");
         FileOutputStream o = new FileOutputStream(zip);
@@ -80,6 +104,13 @@ public class AnalyzeFile {
         return f.listFiles();
     }
 
+    /**
+     * Analyze the Activity folder.
+     *
+     * @param child activity folder
+     * @throws IOException     if the file cannot be found
+     * @throws GeoIp2Exception if the plotting fails
+     */
     private void analyzeActivity(File child) throws IOException, GeoIp2Exception {
         File[] activityList = child.listFiles();
 
@@ -171,6 +202,12 @@ public class AnalyzeFile {
         }
     }
 
+    /**
+     * Analyze the Comments folder.
+     *
+     * @param child comments folder
+     * @throws IOException if the file cannot be found
+     */
     private void analyzeComments(File child) throws IOException {
         File[] activityList = child.listFiles();
 
@@ -185,6 +222,12 @@ public class AnalyzeFile {
         }
     }
 
+    /**
+     * Analyze the Chat History folder.
+     *
+     * @param child Comments folder
+     * @throws IOException if the file cannot be found
+     */
     private void analyzeMessages(File child) throws IOException {
         File[] activityList = child.listFiles();
 
@@ -199,6 +242,12 @@ public class AnalyzeFile {
         }
     }
 
+    /**
+     * Analyze the Settings folder.
+     *
+     * @param child settings folder
+     * @throws IOException if the file cannot be found
+     */
     private void analyzeSettings(File child) throws IOException {
         File[] activityList = child.listFiles();
 
@@ -213,6 +262,12 @@ public class AnalyzeFile {
         }
     }
 
+    /**
+     * Analyze the Profile folder.
+     *
+     * @param child profile folder
+     * @throws IOException if the file cannot be found
+     */
     private void analyzeProfile(File child) throws IOException {
         File[] profileFiles = child.listFiles();
 
@@ -248,6 +303,12 @@ public class AnalyzeFile {
         }
     }
 
+    /**
+     * Analyze the Videos folder.
+     *
+     * @param child videos folder
+     * @throws IOException if the file cannot be found
+     */
     private void analyzeVideos(File child) throws IOException {
         File[] activityList = child.listFiles();
 
@@ -262,6 +323,13 @@ public class AnalyzeFile {
         }
     }
 
+    /**
+     * Parses the data file and calls the needed methods.
+     *
+     * @return the redirect link
+     * @throws IOException     if the file isnt found
+     * @throws GeoIp2Exception if the plotting fails
+     */
     public String parseFile() throws IOException, GeoIp2Exception {
 
         if (this.isValidFile()) {
@@ -274,20 +342,32 @@ public class AnalyzeFile {
                 String fileName = child.getName();
 
                 switch (fileName) {
-                    case ("Activity"): this.analyzeActivity(child); break;
-                    case ("Comments"): this.analyzeComments(child); break;
-                    case ("Direct Messages"): this.analyzeMessages(child); break;
-                    case ("App Settings"): this.analyzeSettings(child); break;
-                    case ("Profile"): this.analyzeProfile(child); break;
-                    case ("Videos"): this.analyzeVideos(child); break;
-                    default: System.out.println("Unknown file: " + fileName);
+                    case ("Activity"):
+                        this.analyzeActivity(child);
+                        break;
+                    case ("Comments"):
+                        this.analyzeComments(child);
+                        break;
+                    case ("Direct Messages"):
+                        this.analyzeMessages(child);
+                        break;
+                    case ("App Settings"):
+                        this.analyzeSettings(child);
+                        break;
+                    case ("Profile"):
+                        this.analyzeProfile(child);
+                        break;
+                    case ("Videos"):
+                        this.analyzeVideos(child);
+                        break;
+                    default:
+                        System.out.println("Unknown file: " + fileName);
                 }
 
             }
 
             return "redirect:/data";
-        }
-        else {
+        } else {
             return "redirect:/error";
         }
     }
